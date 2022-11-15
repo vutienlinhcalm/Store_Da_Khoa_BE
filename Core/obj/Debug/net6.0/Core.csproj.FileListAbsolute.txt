@@ -1,0 +1,14 @@
+E:\Study\IS220.N12\Store_Da_Khoa_BE\Core\bin\Debug\net6.0\Core.deps.json
+E:\Study\IS220.N12\Store_Da_Khoa_BE\Core\bin\Debug\net6.0\Core.runtimeconfig.json
+E:\Study\IS220.N12\Store_Da_Khoa_BE\Core\bin\Debug\net6.0\Core.dll
+E:\Study\IS220.N12\Store_Da_Khoa_BE\Core\bin\Debug\net6.0\Core.pdb
+E:\Study\IS220.N12\Store_Da_Khoa_BE\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+E:\Study\IS220.N12\Store_Da_Khoa_BE\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\Study\IS220.N12\Store_Da_Khoa_BE\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+E:\Study\IS220.N12\Store_Da_Khoa_BE\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+E:\Study\IS220.N12\Store_Da_Khoa_BE\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+E:\Study\IS220.N12\Store_Da_Khoa_BE\Core\obj\Debug\net6.0\Core.dll
+E:\Study\IS220.N12\Store_Da_Khoa_BE\Core\obj\Debug\net6.0\refint\Core.dll
+E:\Study\IS220.N12\Store_Da_Khoa_BE\Core\obj\Debug\net6.0\Core.pdb
+E:\Study\IS220.N12\Store_Da_Khoa_BE\Core\obj\Debug\net6.0\Core.genruntimeconfig.cache
+E:\Study\IS220.N12\Store_Da_Khoa_BE\Core\obj\Debug\net6.0\ref\Core.dll

@@ -1,14 +1,22 @@
+using Microsoft.EntityFrameworkCore;
+using Core.DBContext;
+
 namespace RestAPI
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // Connect DB
+            var connectionString = builder.Configuration.GetConnectionString("connectionString");
+            builder.Services.AddDbContext<ProductDbContent>(x => x.UseSqlServer(connectionString));
 
+            // Add services to the container.
             builder.Services.AddControllers();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
