@@ -21,6 +21,19 @@ namespace RestAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Add Cors
+            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  policy =>
+                                  {
+                                      policy.AllowAnyMethod()
+                                      .AllowAnyHeader()
+                                      .AllowAnyOrigin();
+                                  });
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -32,8 +45,17 @@ namespace RestAPI
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            app.UseRouting();
 
+            //app.UseCors(
+            //    policy => policy.WithOrigins("https://localhost:44304")
+            //                    .AllowAnyMethod()
+            //                    .AllowAnyHeader()
+            //);
+
+            app.UseCors(MyAllowSpecificOrigins);
+
+            app.UseAuthorization();
 
             app.MapControllers();
 

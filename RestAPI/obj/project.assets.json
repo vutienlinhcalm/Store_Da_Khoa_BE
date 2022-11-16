@@ -3926,7 +3926,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
+    "C:\\Users\\tin10\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -3934,11 +3934,11 @@
       "projectUniqueName": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\RestAPI\\RestAPI.csproj",
       "projectName": "RestAPI",
       "projectPath": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\RestAPI\\RestAPI.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\tin10\\.nuget\\packages\\",
       "outputPath": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\RestAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tin10\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4009,7 +4009,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

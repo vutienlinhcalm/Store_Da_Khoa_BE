@@ -8,7 +8,7 @@ namespace RestAPI.Controllers
     {
         [HttpGet]
         [Route("Success")]
-        public IActionResult GetSuccessResult(CancellationToken cancellationToken)
+        public IActionResult GetSuccessResult()
         {
             var resultSuccess = "Success";
 
@@ -17,7 +17,7 @@ namespace RestAPI.Controllers
 
         [HttpGet]
         [Route("SuccessAsync")]
-        public async Task<IActionResult> GetSuccessResultAsync(CancellationToken cancellationToken)
+        public async Task<IActionResult> GetSuccessResultAsync()
         {
             var resultSuccess = "Success";
             await Task.Delay(5000);
