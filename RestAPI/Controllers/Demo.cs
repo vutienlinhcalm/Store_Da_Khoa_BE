@@ -2,9 +2,9 @@
 
 namespace RestAPI.Controllers
 {
-    [Route("api/Products")]
+    [Route("api/Demo")]
     [ApiController]
-    public class ProductsController : Controller
+    public class Demo : Controller
     {
         [HttpGet]
         [Route("Success")]

@@ -1,5 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using Core.DBContext;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace RestAPI
 {
@@ -11,8 +12,9 @@ namespace RestAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Connect DB
-            var connectionString = builder.Configuration.GetConnectionString("connectionString");
-            builder.Services.AddDbContext<ProductDbContent>(x => x.UseSqlServer(connectionString));
+            var ConnectionString = builder.Configuration.GetConnectionString("Northwind");
+            //Entity Framework  
+            builder.Services.AddDbContext<NorthwindDbContext>(options => options.UseSqlServer(ConnectionString));
 
             // Add services to the container.
             builder.Services.AddControllers();
@@ -22,10 +24,10 @@ namespace RestAPI
             builder.Services.AddSwaggerGen();
 
             // Add Cors
-            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+            var MyAllowAnyOrigins = "_myAllowAnyOrigins";
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy(name: MyAllowSpecificOrigins,
+                options.AddPolicy(name: MyAllowAnyOrigins,
                                   policy =>
                                   {
                                       policy.AllowAnyMethod()
@@ -47,13 +49,7 @@ namespace RestAPI
 
             app.UseRouting();
 
-            //app.UseCors(
-            //    policy => policy.WithOrigins("https://localhost:44304")
-            //                    .AllowAnyMethod()
-            //                    .AllowAnyHeader()
-            //);
-
-            app.UseCors(MyAllowSpecificOrigins);
+            app.UseCors(MyAllowAnyOrigins);
 
             app.UseAuthorization();
 
