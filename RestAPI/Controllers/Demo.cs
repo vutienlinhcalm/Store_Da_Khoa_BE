@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Core.DBContext;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace RestAPI.Controllers
 {
@@ -6,6 +8,13 @@ namespace RestAPI.Controllers
     [ApiController]
     public class Demo : Controller
     {
+        public readonly NorthwindDbContext _northwindDbContext;
+
+        public Demo(NorthwindDbContext northwindDbContext)
+        {
+            _northwindDbContext = northwindDbContext;
+        }
+
         [HttpGet]
         [Route("Success")]
         public IActionResult GetSuccessResult()
@@ -24,6 +33,12 @@ namespace RestAPI.Controllers
             return Ok(resultSuccess);
         }
 
-
+        [HttpGet]
+        [Route("Demo_all_items")]
+        public async Task<IActionResult> DemoAllItems()
+        {
+            var result = await _northwindDbContext.Products.LongCountAsync();
+            return Ok(result);
+        }
     }
 }

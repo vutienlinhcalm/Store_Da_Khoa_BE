@@ -13,6 +13,6 @@ namespace Core.DBContext
         {
 
         }
-        public DbSet<ProductsDt> ProductsDt { get; set; }
+        public DbSet<Products> Products { get; set; }
     }
 }

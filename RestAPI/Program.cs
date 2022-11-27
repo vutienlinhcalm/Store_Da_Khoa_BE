@@ -1,6 +1,7 @@
 using Core.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Data.Sql;
 
 namespace RestAPI
 {
@@ -12,7 +13,7 @@ namespace RestAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Connect DB
-            var ConnectionString = builder.Configuration.GetConnectionString("Northwind");
+            var ConnectionString = @"Data Source=DESKTOP-BVCDDU5;Initial Catalog=Northwind;Integrated Security=True;TrustServerCertificate=True";
             //Entity Framework  
             builder.Services.AddDbContext<NorthwindDbContext>(options => options.UseSqlServer(ConnectionString));
 

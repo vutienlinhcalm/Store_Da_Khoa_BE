@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Core.DBContext
 {
-    public class ProductsDt
+    public class Products
     {
         [Key, Required]
         public int ProductID { get; set; }
