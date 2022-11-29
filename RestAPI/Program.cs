@@ -13,9 +13,11 @@ namespace RestAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Connect DB
-            var ConnectionString = @"Data Source=DESKTOP-BVCDDU5;Initial Catalog=Northwind;Integrated Security=True;TrustServerCertificate=True";
+            var ConnectionString = builder.Configuration.GetConnectionString("ClothesStore");
+
             //Entity Framework  
-            builder.Services.AddDbContext<NorthwindDbContext>(options => options.UseSqlServer(ConnectionString));
+            builder.Services.AddDbContext<ClothesStoreDbContext>(options => options.UseSqlServer(ConnectionString,
+                b => b.MigrationsAssembly("RestAPI")));
 
             // Add services to the container.
             builder.Services.AddControllers();
