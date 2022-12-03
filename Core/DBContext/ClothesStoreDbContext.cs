@@ -16,5 +16,6 @@ namespace Core.DBContext
         }
 
         public DbSet<Product> Product { get; set; }
+        public DbSet<Customer> Customer { get; set; }
     }
 }
