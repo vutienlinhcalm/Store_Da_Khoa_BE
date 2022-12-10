@@ -2462,7 +2462,19 @@
           "Core.dll": {}
         }
       },
+      "Repositories/1.0.0": {
+        "dependencies": {
+          "Core": "1.0.0"
+        },
+        "runtime": {
+          "Repositories.dll": {}
+        }
+      },
       "Services/1.0.0": {
+        "dependencies": {
+          "Core": "1.0.0",
+          "Repositories": "1.0.0"
+        },
         "runtime": {
           "Services.dll": {}
         }
@@ -3785,6 +3797,11 @@
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
     "Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Repositories/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

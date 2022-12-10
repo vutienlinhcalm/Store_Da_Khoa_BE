@@ -1,7 +1,11 @@
 using Core.DBContext;
+using Services;
+using Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.Sql;
+using Core.IRepositories;
+using Core.IServices;
 
 namespace RestAPI
 {
@@ -16,11 +20,14 @@ namespace RestAPI
             var ConnectionString = builder.Configuration.GetConnectionString("ClothesStore");
 
             //Entity Framework  
-            builder.Services.AddDbContext<ClothesStoreDbContext>(options => options.UseSqlServer(ConnectionString,
-                b => b.MigrationsAssembly("RestAPI")));
+            builder.Services.AddDbContext<ClothesStoreDbContext>(options => options.UseSqlServer(ConnectionString));
 
             // Add services to the container.
             builder.Services.AddControllers();
+
+            // Register Types
+            builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

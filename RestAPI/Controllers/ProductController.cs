@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Core.DBContext;
+﻿using Core.DBContext.ClothesStoreDataTable;
+using Core.IServices;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Services;
 
 namespace RestAPI.Controllers
 {
@@ -8,18 +10,74 @@ namespace RestAPI.Controllers
     [ApiController]
     public class ProductController : Controller
     {
-        private readonly ClothesStoreDbContext _clothesStoreDbContext;
-
-        public ProductController(ClothesStoreDbContext clothesStoreDbContext)
+        private readonly IProductService _productService;
+        public ProductController(IProductService productService)
         {
-            _clothesStoreDbContext = clothesStoreDbContext;
+            _productService = productService;
         }
 
         [HttpGet]
         [Route("GetListProduct")]
-        public IActionResult GetListProduct(CancellationToken cancellationToken)
+        public async Task<IActionResult> GetListProductAsync(CancellationToken cancellationToken)
         {
-            var _result = _clothesStoreDbContext.Product.ToList();
+            var _response = await _productService.GetAllProductAsync(cancellationToken);
+            var _result = new
+            {
+                Success = _response.Item1,
+                Data = _response.Item2
+            };
+            return Ok(_result);
+        }
+
+        [HttpGet]
+        [Route("GetProductById/{id}")]
+        public async Task<IActionResult> GetProductByIdAsync([FromRoute] int id, CancellationToken cancellationToken)
+        {
+            var _response = await _productService.GetProductByIdAsync(id, cancellationToken);
+            var _result = new
+            {
+                Success = _response.Item1,
+                Data = _response.Item2
+            };
+            return Ok(_result);
+        }
+
+        [HttpPost]
+        [Route("CreateProduct")]
+        public async Task<IActionResult> CreateProductAsync([FromBody] Product product, CancellationToken cancellationToken)
+        {
+            var _response = await _productService.CreateProductAsync(product, cancellationToken);
+            var _result = new
+            {
+                Success = _response.Item1,
+                Data = _response.Item2
+            };
+            return Ok(_result);
+        }
+
+        [HttpPost]
+        [Route("CreateListProduct")]
+        public async Task<IActionResult> CreateListProductAsync([FromBody] List<Product> products, CancellationToken cancellationToken)
+        {
+            var _response = await _productService.CreateListProductAsync(products, cancellationToken);
+            var _result = new
+            {
+                Success = _response.Item1,
+                Data = _response.Item2
+            };
+            return Ok(_result);
+        }
+
+        [HttpPut]
+        [Route("UpdateProduct/{id}")]
+        public async Task<IActionResult> UpdateProductAsync([FromBody] Product product, CancellationToken cancellationToken)
+        {
+            var _response = await _productService.UpdateProductAsync(product, cancellationToken);
+            var _result = new
+            {
+                Success = _response.Item1,
+                Data = _response.Item2
+            };
             return Ok(_result);
         }
     }
