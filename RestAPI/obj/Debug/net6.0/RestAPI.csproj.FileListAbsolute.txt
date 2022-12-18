@@ -287,3 +287,8 @@ E:\Study\IS220.N12\Store_Da_Khoa_BE\RestAPI\bin\Debug\net6.0\runtimes\win\lib\ne
 E:\Study\IS220.N12\Store_Da_Khoa_BE\RestAPI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 E:\Study\IS220.N12\Store_Da_Khoa_BE\RestAPI\bin\Debug\net6.0\Repositories.dll
 E:\Study\IS220.N12\Store_Da_Khoa_BE\RestAPI\bin\Debug\net6.0\Repositories.pdb
+E:\Study\IS220.N12\Store_Da_Khoa_BE\RestAPI\obj\Debug\net6.0\staticwebassets\msbuild.RestAPI.Microsoft.AspNetCore.StaticWebAssets.props
+E:\Study\IS220.N12\Store_Da_Khoa_BE\RestAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.RestAPI.props
+E:\Study\IS220.N12\Store_Da_Khoa_BE\RestAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.RestAPI.props
+E:\Study\IS220.N12\Store_Da_Khoa_BE\RestAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.RestAPI.props
+E:\Study\IS220.N12\Store_Da_Khoa_BE\RestAPI\obj\Debug\net6.0\staticwebassets.pack.json

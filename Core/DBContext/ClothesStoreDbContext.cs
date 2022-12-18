@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Core.DBContext.ClothesStoreDataTable;
 
 namespace Core.DBContext
 {
@@ -14,8 +13,5 @@ namespace Core.DBContext
         {
 
         }
-
-        public DbSet<Product> Product { get; set; }
-        public DbSet<Customer> Customer { get; set; }
     }
 }

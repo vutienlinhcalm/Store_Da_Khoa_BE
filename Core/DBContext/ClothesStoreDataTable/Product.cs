@@ -1,26 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Core.DBContext.ClothesStoreDataTable
+namespace Core.DBContext.ClothesStoreDataTable;
+
+public partial class Product
 {
-    [Table("Product")]
-    public class Product
-    {
-        [Key]
-        public int Productid { get; set; }
-        public int Category_id { get; set; }
-        public int Brand_id { get; set; }
-        public string ProductName { get; set; }
-        public string Description { get; set; }
-        public string Productimage { get; set; }
-        public decimal Price { get; set; }
-        public byte Quantity { get; set; }
-        public int Gender { get; set; }
-        public string size { get; set; }
-    }
+    public int ProductId { get; set; }
+
+    public string? Brand { get; set; }
+
+    public string? ProductName { get; set; }
+
+    public string? Description { get; set; }
+
+    public string? MainImage { get; set; }
+
+    public string? SubImage1 { get; set; }
+
+    public string? SubImage2 { get; set; }
+
+    public int? Price { get; set; }
+
+    public int? StoreQuantity { get; set; }
+
+    public int? Gender { get; set; }
+
+    public virtual ICollection<OrderDetail> OrderDetails { get; } = new List<OrderDetail>();
+
+    public virtual ICollection<Category> Categories { get; } = new List<Category>();
 }
