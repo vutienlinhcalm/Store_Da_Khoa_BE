@@ -38,19 +38,19 @@ GO
 --)
 
 CREATE TABLE "Account" (
-	"AccountId" nvarchar primary key,
-	"Name" varchar,
-	"UserName" nvarchar,
-	"Password" nvarchar,
+	"AccountId" nvarchar(100) primary key,
+	"Name" nvarchar(100),
+	"UserName" nvarchar(100),
+	"Password" nvarchar(100),
 	"IsAdmin" bit,
-	"Email" nvarchar,
-	"Phone" nvarchar
+	"Email" nvarchar(100),
+	"Phone" nvarchar(100)
 )
 
 CREATE TABLE "Category"(
-	"CategoryId" int Primary key,
-	"CategoryName" varchar,
-	"Description" varchar
+	"CategoryId" nvarchar(100) primary key,
+	"CategoryName" nvarchar(100),
+	"Description" nvarchar(100)
 )
 --CREATE TABLE "Brand"(
 --	"Brandid" int Primary key,
@@ -59,29 +59,28 @@ CREATE TABLE "Category"(
 --)
 
 CREATE TABLE "Product"(
-	"ProductId" int primary key,
-	"Brand" nvarchar,
-	"ProductName" nvarchar,
-	"Description" nvarchar,
-	"MainImage" nvarchar,
-	"SubImage1" nvarchar,
-	"SubImage2" nvarchar,
+	"ProductId" nvarchar(100) primary key,
+	"Brand" nvarchar(100),
+	"ProductName" nvarchar(100),
+	"Description" nvarchar(100),
+	"MainImage" nvarchar(100),
+	"SubImage1" nvarchar(100),
+	"SubImage2" nvarchar(100),
 	"Price" int,
 	"StoreQuantity" int,
 	"Gender" int
 )
 
-CREATE TABLE "ProductCateglory"(
-	"ProductId" int ,
-
-	"CategoryId" int,
-	CONSTRAINT "PK_ProductCateglory" PRIMARY KEY  CLUSTERED 
+CREATE TABLE "ProductCategory"(
+	"ProductId" nvarchar(100),
+	"CategoryId" nvarchar(100),
+	CONSTRAINT "PK_ProductCategory" PRIMARY KEY  CLUSTERED 
 	(
 		"ProductId",
 		"CategoryId"
 	),
-	CONSTRAINT FK_ProductCateglory_Product FOREIGN KEY ("ProductId") REFERENCES  "Product" ("ProductId"),
-	CONSTRAINT FK_ProductCateglory_Category FOREIGN KEY ("CategoryId") REFERENCES  "Category" ("CategoryId"),
+	CONSTRAINT FK_ProductCategory_Product FOREIGN KEY ("ProductId") REFERENCES  "Product" ("ProductId"),
+	CONSTRAINT FK_ProductCategory_Category FOREIGN KEY ("CategoryId") REFERENCES  "Category" ("CategoryId"),
 )
 
 --CREATE TABLE "Ship"(
@@ -96,19 +95,19 @@ CREATE TABLE "ProductCateglory"(
 --)
 
 CREATE TABLE "Order"(
-	"OrderId" int primary key,
-	"AccountId" nvarchar,
+	"OrderId" nvarchar(100) primary key,
+	"AccountId" nvarchar(100),
 	"OrderTime" datetime,
-	"PaymentMethod" nvarchar,
-	"Address" nvarchar,
+	"PaymentMethod" nvarchar(100),
+	"Address" nvarchar(100),
 	"Status" int,
 	"TotalPrice" int,
 	CONSTRAINT FK_Order_Account FOREIGN KEY ("AccountId") REFERENCES  "Account" ("AccountId")
 )
 
 CREATE TABLE "OrderDetail"(
-	"OrderId" int ,
-	"ProductId" int,
+	"OrderId" nvarchar(100),
+	"ProductId" nvarchar(100),
 	"Quantity" int,
 	"Price" int,
 	CONSTRAINT "PK_OrderDetail" PRIMARY KEY  CLUSTERED 
@@ -177,6 +176,16 @@ CREATE TABLE "OrderDetail"(
 --INSERT INTO "Ship" VALUES (2,'PHAM Ngu Lao','DONG HOA','Q5','HCM','Tuấn','0865965422',1)
 --INSERT INTO "Ship" VALUES (3,'Truong Son Đông','DONG HOA','Bình Thạnh','HCM','Hải','0398745623',2)
 
+INSERT INTO "Product" VALUES ('test_1','test_brand_1','test_name_1','test_decription_1','test_img1_1','test_img2_1','test_img3_1',1,1,1)
+INSERT INTO "Product" VALUES ('test_2','test_brand_2','test_name_2','test_decription_2','test_img1_2','test_img2_2','test_img3_2',2,2,2)
+INSERT INTO "Product" VALUES ('test_3','test_brand_3','test_name_3','test_decription_3','test_img1_3','test_img2_3','test_img3_3',3,3,3)
+INSERT INTO "Product" VALUES ('test_4','test_brand_4','test_name_4','test_decription_4','test_img1_4','test_img2_4','test_img3_4',4,4,4)
+INSERT INTO "Product" VALUES ('test_5','test_brand_5','test_name_5','test_decription_5','test_img1_5','test_img2_5','test_img3_5',5,5,5)
 
+INSERT INTO "Category" VALUES ('test_1','test_name_1','test_decription_1')
+INSERT INTO "Category" VALUES ('test_2','test_name_2','test_decription_2')
+INSERT INTO "Category" VALUES ('test_3','test_name_3','test_decription_3')
+INSERT INTO "Category" VALUES ('test_4','test_name_4','test_decription_4')
+INSERT INTO "Category" VALUES ('test_5','test_name_5','test_decription_5')
 
-
+INSERT INTO "ProductCategory" VALUES ('test_1','test_1')

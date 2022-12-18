@@ -10913,7 +10913,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tin10\\.nuget\\packages\\": {}
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -10921,11 +10921,11 @@
       "projectUniqueName": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\RestAPI\\RestAPI.csproj",
       "projectName": "RestAPI",
       "projectPath": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\RestAPI\\RestAPI.csproj",
-      "packagesPath": "C:\\Users\\tin10\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
       "outputPath": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\RestAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tin10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
