@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Data.Sql;
 using Core.IRepositories;
 using Core.IServices;
+using System.Text.Json.Serialization;
 
 namespace RestAPI
 {
@@ -23,7 +24,8 @@ namespace RestAPI
             builder.Services.AddDbContext<ClothesStoreDbContext>(options => options.UseSqlServer(ConnectionString));
 
             // Add services to the container.
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
             // Register Types
             builder.Services.AddScoped<IProductService, ProductService>();

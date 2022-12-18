@@ -9,7 +9,7 @@ namespace Core.ViewModel
 {
     public class ProductViewModel
     {
-        public int ProductId { get; set; }
+        public string ProductId { get; set; }
 
         public string? Brand { get; set; }
 
@@ -29,8 +29,6 @@ namespace Core.ViewModel
 
         public int? Gender { get; set; }
 
-        public List<string> OrderDetailIds { get; set; } = new List<string>();
-
-        public List<string> CategoryIds { get; set; } = new List<string>();
+        public List<string> CategoryNames { get; set; } = new List<string>();
     }
 }

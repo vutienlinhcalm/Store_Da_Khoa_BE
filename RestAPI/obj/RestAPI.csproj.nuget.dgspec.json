@@ -10,11 +10,11 @@
         "projectUniqueName": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\Core\\Core.csproj",
         "projectName": "Core",
         "projectPath": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\tin10\\.nuget\\packages\\",
         "outputPath": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tin10\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -91,11 +91,11 @@
         "projectUniqueName": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
         "projectPath": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\Repositories\\Repositories.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\tin10\\.nuget\\packages\\",
         "outputPath": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tin10\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -150,11 +150,11 @@
         "projectUniqueName": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\RestAPI\\RestAPI.csproj",
         "projectName": "RestAPI",
         "projectPath": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\RestAPI\\RestAPI.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\tin10\\.nuget\\packages\\",
         "outputPath": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\RestAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tin10\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -245,11 +245,11 @@
         "projectUniqueName": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\Services\\Services.csproj",
         "projectName": "Services",
         "projectPath": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\tin10\\.nuget\\packages\\",
         "outputPath": "E:\\Study\\IS220.N12\\Store_Da_Khoa_BE\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tin10\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

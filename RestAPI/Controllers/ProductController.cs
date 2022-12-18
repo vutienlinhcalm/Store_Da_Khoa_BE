@@ -1,5 +1,6 @@
 ﻿using Core.DBContext.ClothesStoreDataTable;
 using Core.IServices;
+using Core.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Services;
@@ -31,7 +32,7 @@ namespace RestAPI.Controllers
 
         [HttpGet]
         [Route("GetProductById/{id}")]
-        public async Task<IActionResult> GetProductByIdAsync([FromRoute] int id, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetProductByIdAsync([FromRoute] string id, CancellationToken cancellationToken)
         {
             var (success, _response) = await _productService.GetProductByIdAsync(id, cancellationToken);
             var _result = new
@@ -44,7 +45,7 @@ namespace RestAPI.Controllers
 
         [HttpPost]
         [Route("CreateProduct")]
-        public async Task<IActionResult> CreateProductAsync([FromBody] Product product, CancellationToken cancellationToken)
+        public async Task<IActionResult> CreateProductAsync([FromBody] ProductViewModel product, CancellationToken cancellationToken)
         {
             var (success, _response) = await _productService.CreateProductAsync(product, cancellationToken);
             var _result = new
@@ -57,7 +58,7 @@ namespace RestAPI.Controllers
 
         [HttpPost]
         [Route("CreateListProduct")]
-        public async Task<IActionResult> CreateListProductAsync([FromBody] List<Product> products, CancellationToken cancellationToken)
+        public async Task<IActionResult> CreateListProductAsync([FromBody] List<ProductViewModel> products, CancellationToken cancellationToken)
         {
             var (success, _response) = await _productService.CreateListProductAsync(products, cancellationToken);
             var _result = new
@@ -70,9 +71,9 @@ namespace RestAPI.Controllers
 
         [HttpPut]
         [Route("UpdateProduct/{id}")]
-        public async Task<IActionResult> UpdateProductAsync([FromRoute] string id,[FromBody] Product product, CancellationToken cancellationToken)
+        public async Task<IActionResult> UpdateProductAsync([FromRoute] string id,[FromBody] ProductViewModel product, CancellationToken cancellationToken)
         {
-
+            product.ProductId = id;
             var (success, _response) = await _productService.UpdateProductAsync(product, cancellationToken);
             var _result = new
             {

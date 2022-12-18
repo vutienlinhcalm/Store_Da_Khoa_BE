@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.ViewModel;
+using Microsoft.CodeAnalysis;
 
 namespace Core.DBContext.ClothesStoreDataTable;
 
 public partial class Product
 {
-    public int ProductId { get; set; }
+    public Product()
+    {
+        this.Categories = new HashSet<Category>();
+    }
+    public string ProductId { get; set; }
 
     public string? Brand { get; set; }
 
@@ -28,5 +33,22 @@ public partial class Product
 
     public virtual ICollection<OrderDetail> OrderDetails { get; } = new List<OrderDetail>();
 
-    public virtual ICollection<Category> Categories { get; } = new List<Category>();
+    public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
+    public ProductViewModel GetViewModel()
+    {
+        var p = new ProductViewModel();
+        p.ProductId = ProductId;
+        p.Brand = Brand;
+        p.ProductName = ProductName;
+        p.Description = Description;
+        p.MainImage = MainImage;
+        p.SubImage1 = SubImage1;
+        p.SubImage2 = SubImage2;
+        p.Price = Price;
+        p.StoreQuantity = StoreQuantity;
+        p.Gender = Gender;
+        p.CategoryNames = Categories.Select(c => c.CategoryName).ToList();
+
+        return p;
+    }
 }

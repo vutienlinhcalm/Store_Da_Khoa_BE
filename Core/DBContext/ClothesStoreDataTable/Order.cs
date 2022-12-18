@@ -5,7 +5,7 @@ namespace Core.DBContext.ClothesStoreDataTable;
 
 public partial class Order
 {
-    public int OrderId { get; set; }
+    public string OrderId { get; set; }
 
     public string? AccountId { get; set; }
 

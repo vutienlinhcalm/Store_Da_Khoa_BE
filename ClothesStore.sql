@@ -189,3 +189,6 @@ INSERT INTO "Category" VALUES ('test_4','test_name_4','test_decription_4')
 INSERT INTO "Category" VALUES ('test_5','test_name_5','test_decription_5')
 
 INSERT INTO "ProductCategory" VALUES ('test_1','test_1')
+INSERT INTO "ProductCategory" VALUES ('test_1','test_2')
+INSERT INTO "ProductCategory" VALUES ('test_1','test_3')
+INSERT INTO "ProductCategory" VALUES ('test_1','test_4')
