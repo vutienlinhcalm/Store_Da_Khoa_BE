@@ -29,6 +29,6 @@ namespace Core.ViewModel
 
         public int? Gender { get; set; }
 
-        public List<string> CategoryNames { get; set; } = new List<string>();
+        public List<CategoryViewModel> Categories { get; set; } = new List<CategoryViewModel>();
     }
 }

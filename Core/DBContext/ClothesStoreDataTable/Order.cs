@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.ViewModel;
+using System;
 using System.Collections.Generic;
 
 namespace Core.DBContext.ClothesStoreDataTable;
@@ -22,4 +23,26 @@ public partial class Order
     public virtual Account? Account { get; set; }
 
     public virtual ICollection<OrderDetail> OrderDetails { get; } = new List<OrderDetail>();
+
+    public OrderViewModel GetViewModel()
+    {
+        var order = new OrderViewModel();
+        order.OrderId = OrderId;
+        order.AccountId = AccountId;
+        order.OrderTime = OrderTime;
+        order.PaymentMethod = PaymentMethod;
+        order.Address = Address;
+        order.Status = Status;
+        order.TotalPrice = TotalPrice;
+        order.OrderDetails = OrderDetails.Select(orderDetail => new OrderDetailViewModel()
+        {
+            OrderId = orderDetail.OrderId,
+            ProductId = orderDetail.ProductId,
+            Quantity = orderDetail.Quantity,
+            Price = orderDetail.Price,
+            Product = orderDetail.Product.GetViewModel()
+        }).ToList();
+
+        return order;
+    }
 }

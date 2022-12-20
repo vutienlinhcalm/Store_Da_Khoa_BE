@@ -18,10 +18,22 @@ namespace Services
         {
             _orderRepository = orderRepository;
         }
-        public async Task<(int, List<OrderDetail>)> GetOrderDetailByOrderIdAsync(string id, CancellationToken cancellationToken)
+        public async Task<(int, OrderViewModel)> GetOrderByIdAsync(string id, CancellationToken cancellationToken)
         {
-            var (success, response) = await _orderRepository.GetListOrderDetailByOrderIdAsync(cancellationToken);
-            var result = response.Select(p => p.GetViewModel()).ToList();
+            var (success, response) = await _orderRepository.GetOrderByIdAsync(id, cancellationToken);
+            var result = response.GetViewModel();
+            return (success, result);
+        }
+        public async Task<(int, List<OrderViewModel>)> GetListOrderByAccountIdAsync(string accountId, CancellationToken cancellationToken)
+        {
+            var (success, response) = await _orderRepository.GetListOrderByAccountIdAsync(accountId, cancellationToken);
+            var result = response.Select(order => order.GetViewModel()).ToList();
+            return (success, result);
+        }
+        public async Task<(int, OrderViewModel)> CreateOrderAsync(OrderViewModel order, CancellationToken cancellationToken)
+        {
+            var (success, response) = await _orderRepository.InsertOrderAsync(order, cancellationToken);
+            var result = response.GetViewModel();
             return (success, result);
         }
     }

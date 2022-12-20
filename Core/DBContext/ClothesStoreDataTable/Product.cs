@@ -47,7 +47,12 @@ public partial class Product
         p.Price = Price;
         p.StoreQuantity = StoreQuantity;
         p.Gender = Gender;
-        p.CategoryNames = Categories.Select(c => c.CategoryName).ToList();
+        p.Categories = Categories.Select(c => new CategoryViewModel
+        {
+            CategoryId = c.CategoryId,
+            CategoryName = c.CategoryName,
+            Description = c.Description
+        }).ToList();
 
         return p;
     }

@@ -86,7 +86,7 @@ namespace Repositories
                 Price = product.Price,
                 StoreQuantity = product.StoreQuantity,
                 Gender = product.Gender,
-                Categories = GetCategoryByListName(product.CategoryNames)
+                Categories = GetListCategoryByListName(product.Categories.Select(c => c.CategoryName).ToList())
             };
             return p;
         }
@@ -104,11 +104,11 @@ namespace Repositories
                 Price = product.Price,
                 StoreQuantity = product.StoreQuantity,
                 Gender = product.Gender,
-                Categories = GetCategoryByListName(product.CategoryNames)
+                Categories = GetListCategoryByListName(product.Categories.Select(c => c.CategoryName).ToList())
             };
             return p;
         }
-        public List<Category> GetCategoryByListName(List<string> names)
+        public List<Category> GetListCategoryByListName(List<string?> names)
         {
             return _clothesStoreDbContext.Categories.Where(c => names.Contains(c.CategoryName)).ToList();
         }
