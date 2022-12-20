@@ -9,7 +9,7 @@ namespace RestAPI.Controllers
 {
     [Route("api/Product")]
     [ApiController]
-    public class ProductController : Controller
+    public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
         public ProductController(IProductService productService)
@@ -35,6 +35,19 @@ namespace RestAPI.Controllers
         public async Task<IActionResult> GetProductByIdAsync([FromRoute] string id, CancellationToken cancellationToken)
         {
             var (success, _response) = await _productService.GetProductByIdAsync(id, cancellationToken);
+            var _result = new
+            {
+                Success = success,
+                Data = _response
+            };
+            return Ok(_result);
+        }
+
+        [HttpGet]
+        [Route("GetProductByListCategory")]
+        public async Task<IActionResult> GetProductByListCategoryAsync([FromQuery] List<string> category, CancellationToken cancellationToken)
+        {
+            var (success, _response) = await _productService.GetProductByListCategoryAsync(category, cancellationToken);
             var _result = new
             {
                 Success = success,

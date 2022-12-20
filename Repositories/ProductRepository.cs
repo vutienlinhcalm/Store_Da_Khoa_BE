@@ -37,6 +37,17 @@ namespace Repositories
                 .FirstAsync(cancellationToken);
             return (1, result);
         }
+        public async Task<(int, List<Product>)> GetProductByListCategoryAsync(List<string> category, CancellationToken cancellationToken)
+        {
+            var result = await _clothesStoreDbContext.Products
+                .Include(p => p.Categories)
+                .Where(p => p.Categories
+                    .Select(pp => pp.CategoryName)
+                    .Intersect(category)
+                    .Any())
+                .ToListAsync(cancellationToken);
+            return (1, result);
+        }
         public async Task<(int, Product)> InsertProductAsync(ProductViewModel product, CancellationToken cancellationToken)
         {
             var p = GetInsertProductModel(product);

@@ -13,6 +13,7 @@ namespace Core.IServices
     {
         Task<(int, List<ProductViewModel>)> GetAllProductAsync(CancellationToken cancellationToken);
         Task<(int, ProductViewModel)> GetProductByIdAsync(string id, CancellationToken cancellationToken);
+        Task<(int, List<ProductViewModel>)> GetProductByListCategoryAsync(List<string> category, CancellationToken cancellationToken);
         Task<(int, ProductViewModel)> CreateProductAsync(ProductViewModel product, CancellationToken cancellationToken);
         Task<(int, List<ProductViewModel>)> CreateListProductAsync(List<ProductViewModel> products, CancellationToken cancellationToken);
         Task<(int, ProductViewModel)> UpdateProductAsync(ProductViewModel product, CancellationToken cancellationToken);

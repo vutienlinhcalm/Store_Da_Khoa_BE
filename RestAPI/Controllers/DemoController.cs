@@ -7,7 +7,7 @@ namespace RestAPI.Controllers
 {
     [Route("api/demo/Product")]
     [ApiController]
-    public class DemoController : Controller
+    public class DemoController : ControllerBase
     {
         private readonly ClothesStoreDbContext _clothesStoreDbContext;
         public DemoController(ClothesStoreDbContext clothesStoreDbContext)
