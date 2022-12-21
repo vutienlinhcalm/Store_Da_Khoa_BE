@@ -19,7 +19,6 @@ namespace RestAPI.Controllers
         public async Task<IActionResult> GetListProductAsync(CancellationToken cancellationToken)
         {
             var result = await _clothesStoreDbContext.Products
-                .Include(p => p.Categories)
                 .ToListAsync();
             var result_ = result.Select(p => p.GetViewModel()).ToList();
             return Ok(result_);

@@ -36,9 +36,9 @@ namespace Services
             return (success, result);
         }
 
-        public async Task<(int, List<ProductViewModel>)> GetProductByListCategoryAsync(List<string> category, CancellationToken cancellationToken)
+        public async Task<(int, List<ProductViewModel>)> GetListProductByCategoryAsync(string category, CancellationToken cancellationToken)
         {
-            var (success, response) = await _productRepository.GetProductByListCategoryAsync(category, cancellationToken);
+            var (success, response) = await _productRepository.GetListProductByCategoryAsync(category, cancellationToken);
             var result = response.Select(p => p.GetViewModel()).ToList();
             return (success, result);
         }

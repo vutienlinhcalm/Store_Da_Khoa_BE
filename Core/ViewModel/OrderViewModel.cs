@@ -1,4 +1,5 @@
-﻿using Core.DBContext.ClothesStoreDataTable;
+﻿using Core.DBContext;
+using Core.DBContext.ClothesStoreDataTable;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,24 @@ namespace Core.ViewModel
         public int? TotalPrice { get; set; }
 
         public List<OrderDetailViewModel> OrderDetails { get; set; } = new List<OrderDetailViewModel>();
+
+        public Order GetInsertModel()
+        {
+            var id = new Guid().ToString();
+            var o = new Order()
+            {
+                OrderId = id,
+                AccountId = AccountId,
+                OrderTime = OrderTime,
+                PaymentMethod = PaymentMethod,
+                Address = Address,
+                Status = Status,
+                TotalPrice = TotalPrice,
+                Account = AccountId is not null ? new Account() { AccountId = AccountId} : null,
+                OrderDetails = OrderDetails.Select(orederDetail => orederDetail.GetInsertModel(id)).ToList(),
+            };
+
+            return o;
+        }
     }
 }

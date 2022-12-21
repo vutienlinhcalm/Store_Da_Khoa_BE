@@ -25,7 +25,6 @@ namespace Repositories
         public async Task<(int, List<Product>)> GetAllProductAsync(CancellationToken cancellationToken)
         {
             var result = await _clothesStoreDbContext.Products
-                .Include(p => p.Categories)
                 .ToListAsync(cancellationToken);
             return (1, result);
         }
@@ -33,24 +32,19 @@ namespace Repositories
         {
             var result = await _clothesStoreDbContext.Products
                 .Where(p => p.ProductId == id)
-                .Include(p => p.Categories)
                 .FirstAsync(cancellationToken);
             return (1, result);
         }
-        public async Task<(int, List<Product>)> GetProductByListCategoryAsync(List<string> category, CancellationToken cancellationToken)
+        public async Task<(int, List<Product>)> GetListProductByCategoryAsync(string category, CancellationToken cancellationToken)
         {
             var result = await _clothesStoreDbContext.Products
-                .Include(p => p.Categories)
-                .Where(p => p.Categories
-                    .Select(pp => pp.CategoryName)
-                    .Intersect(category)
-                    .Any())
+                .Where(p => p.Category == category)
                 .ToListAsync(cancellationToken);
             return (1, result);
         }
         public async Task<(int, Product)> InsertProductAsync(ProductViewModel product, CancellationToken cancellationToken)
         {
-            var p = GetInsertProductModel(product);
+            var p = product.GetInsertModel();
 
             await _clothesStoreDbContext.Products.AddAsync(p, cancellationToken);
             _clothesStoreDbContext.SaveChanges();
@@ -58,7 +52,7 @@ namespace Repositories
         }
         public async Task<(int, List<Product>)> InsertBulkProductAsync(List<ProductViewModel> products, CancellationToken cancellationToken)
         {
-            var p = products.Select(_p => GetInsertProductModel(_p)).ToList();
+            var p = products.Select(_p => _p.GetInsertModel()).ToList();
 
             await _clothesStoreDbContext.Products.AddRangeAsync(p, cancellationToken);
             _clothesStoreDbContext.SaveChanges();
@@ -66,52 +60,13 @@ namespace Repositories
         }
         public async Task<(int, Product)> UpdateProductAsync(ProductViewModel product, CancellationToken cancellationToken)
         {
-            var p = GetUpdateProductModel(product);
+            var p = product.GetUpdateModel();
 
             _clothesStoreDbContext.Update(p);
             await _clothesStoreDbContext.SaveChangesAsync(cancellationToken);
             return (1, p);
         }
-        public Product GetInsertProductModel(ProductViewModel product)
-        {
-            var p = new Product()
-            {
-                ProductId = product.ProductId,
-                Brand = product.Brand,
-                ProductName = product.ProductName,
-                Description = product.Description,
-                MainImage = product.MainImage,
-                SubImage1 = product.SubImage1,
-                SubImage2 = product.SubImage2,
-                Price = product.Price,
-                StoreQuantity = product.StoreQuantity,
-                Gender = product.Gender,
-                Categories = GetListCategoryByListName(product.Categories.Select(c => c.CategoryName).ToList())
-            };
-            return p;
-        }
-        public Product GetUpdateProductModel(ProductViewModel product)
-        {
-            var p = new Product()
-            {
-                ProductId = product.ProductId,
-                Brand = product.Brand,
-                ProductName = product.ProductName,
-                Description = product.Description,
-                MainImage = product.MainImage,
-                SubImage1 = product.SubImage1,
-                SubImage2 = product.SubImage2,
-                Price = product.Price,
-                StoreQuantity = product.StoreQuantity,
-                Gender = product.Gender,
-                Categories = GetListCategoryByListName(product.Categories.Select(c => c.CategoryName).ToList())
-            };
-            return p;
-        }
-        public List<Category> GetListCategoryByListName(List<string?> names)
-        {
-            return _clothesStoreDbContext.Categories.Where(c => names.Contains(c.CategoryName)).ToList();
-        }
+        
 
     }
 }

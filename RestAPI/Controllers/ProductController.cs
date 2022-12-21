@@ -44,10 +44,10 @@ namespace RestAPI.Controllers
         }
 
         [HttpGet]
-        [Route("GetProductByListCategory")]
-        public async Task<IActionResult> GetProductByListCategoryAsync([FromQuery] List<string> category, CancellationToken cancellationToken)
+        [Route("GetListProductByCategory")]
+        public async Task<IActionResult> GetListProductByCategoryAsync([FromQuery] string category, CancellationToken cancellationToken)
         {
-            var (success, _response) = await _productService.GetProductByListCategoryAsync(category, cancellationToken);
+            var (success, _response) = await _productService.GetListProductByCategoryAsync(category, cancellationToken);
             var _result = new
             {
                 Success = success,

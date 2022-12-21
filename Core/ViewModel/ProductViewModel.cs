@@ -29,6 +29,43 @@ namespace Core.ViewModel
 
         public int? Gender { get; set; }
 
-        public List<CategoryViewModel> Categories { get; set; } = new List<CategoryViewModel>();
+        public string? Category { get; set; }
+
+        public Product GetInsertModel()
+        {
+            var p = new Product()
+            {
+                ProductId = new Guid().ToString(),
+                Brand = Brand,
+                ProductName = ProductName,
+                Description = Description,
+                MainImage = MainImage,
+                SubImage1 = SubImage1,
+                SubImage2 = SubImage2,
+                Price = Price,
+                StoreQuantity = StoreQuantity,
+                Gender = Gender,
+                Category = Category
+            };
+            return p;
+        }
+        public Product GetUpdateModel()
+        {
+            var p = new Product()
+            {
+                ProductId = ProductId,
+                Brand = Brand,
+                ProductName = ProductName,
+                Description = Description,
+                MainImage = MainImage,
+                SubImage1 = SubImage1,
+                SubImage2 = SubImage2,
+                Price = Price,
+                StoreQuantity = StoreQuantity,
+                Gender = Gender,
+                Category = Category
+            };
+            return p;
+        }
     }
 }

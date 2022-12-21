@@ -44,30 +44,11 @@ namespace Repositories
 
         public async Task<(int, Order)> InsertOrderAsync(OrderViewModel order, CancellationToken cancellationToken)
         {
-            var o = GetInsertOrderModel(order);
+            var o = order.GetInsertModel();
 
             var result = await _clothesStoreDbContext.AddAsync(o, cancellationToken);
             _clothesStoreDbContext.SaveChanges();
             return (1, o);
         }
-
-        public Order GetInsertOrderModel(OrderViewModel order)
-        {
-            var o = new Order()
-            {
-                OrderId = order.OrderId,
-                AccountId = order.AccountId,
-                OrderTime = order.OrderTime,
-                PaymentMethod = order.PaymentMethod,
-                Address = order.Address,
-                Status = order.Status,
-                TotalPrice = order.TotalPrice,
-                Account = _clothesStoreDbContext.Accounts.Where(a => a.AccountId == order.AccountId).First(),
-            };
-
-            return o;
-        }
-
-
     }
 }

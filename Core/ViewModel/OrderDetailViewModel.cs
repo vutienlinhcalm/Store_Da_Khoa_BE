@@ -18,5 +18,32 @@ namespace Core.ViewModel
         public int? Price { get; set; }
 
         public ProductViewModel Product { get; set; } = null!;
+
+        public OrderDetail GetInsertModel()
+        {
+            var orderDetail = new OrderDetail()
+            {
+                OrderId = OrderId,
+                ProductId = ProductId,
+                Quantity= Quantity,
+                Price = Price,
+                Product = new Product() { ProductId = ProductId },
+            };
+
+            return orderDetail;
+        }
+        public OrderDetail GetInsertModel(string id)
+        {
+            var orderDetail = new OrderDetail()
+            {
+                OrderId = id,
+                ProductId = ProductId,
+                Quantity = Quantity,
+                Price = Price,
+                Product = new Product() { ProductId = ProductId },
+            };
+
+            return orderDetail;
+        }
     }
 }

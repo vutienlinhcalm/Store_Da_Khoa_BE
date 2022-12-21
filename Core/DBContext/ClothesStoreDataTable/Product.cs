@@ -7,10 +7,6 @@ namespace Core.DBContext.ClothesStoreDataTable;
 
 public partial class Product
 {
-    public Product()
-    {
-        this.Categories = new HashSet<Category>();
-    }
     public string ProductId { get; set; }
 
     public string? Brand { get; set; }
@@ -31,9 +27,10 @@ public partial class Product
 
     public int? Gender { get; set; }
 
+    public string? Category { get; set; }
+
     public virtual ICollection<OrderDetail> OrderDetails { get; } = new List<OrderDetail>();
 
-    public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
     public ProductViewModel GetViewModel()
     {
         var p = new ProductViewModel();
@@ -47,12 +44,7 @@ public partial class Product
         p.Price = Price;
         p.StoreQuantity = StoreQuantity;
         p.Gender = Gender;
-        p.Categories = Categories.Select(c => new CategoryViewModel
-        {
-            CategoryId = c.CategoryId,
-            CategoryName = c.CategoryName,
-            Description = c.Description
-        }).ToList();
+        p.Category = Category;
 
         return p;
     }
