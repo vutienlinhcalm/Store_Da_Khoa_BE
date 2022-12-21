@@ -47,11 +47,11 @@ CREATE TABLE "Account" (
 	"Phone" nvarchar(100)
 )
 
-CREATE TABLE "Category"(
-	"CategoryId" nvarchar(100) primary key,
-	"CategoryName" nvarchar(100),
-	"Description" nvarchar(100)
-)
+--CREATE TABLE "Category"(
+--	"CategoryId" nvarchar(100) primary key,
+--	"CategoryName" nvarchar(100),
+--	"Description" nvarchar(100)
+--)
 --CREATE TABLE "Brand"(
 --	"Brandid" int Primary key,
 --	"Brandname" varchar(50),
@@ -62,26 +62,27 @@ CREATE TABLE "Product"(
 	"ProductId" nvarchar(100) primary key,
 	"Brand" nvarchar(100),
 	"ProductName" nvarchar(100),
-	"Description" nvarchar(100),
+	"Description" TEXT,
 	"MainImage" nvarchar(100),
 	"SubImage1" nvarchar(100),
 	"SubImage2" nvarchar(100),
 	"Price" int,
 	"StoreQuantity" int,
-	"Gender" int
+	"Gender" int,
+	"Category" nvarchar(100)
 )
 
-CREATE TABLE "ProductCategory"(
-	"ProductId" nvarchar(100),
-	"CategoryId" nvarchar(100),
-	CONSTRAINT "PK_ProductCategory" PRIMARY KEY  CLUSTERED 
-	(
-		"ProductId",
-		"CategoryId"
-	),
-	CONSTRAINT FK_ProductCategory_Product FOREIGN KEY ("ProductId") REFERENCES  "Product" ("ProductId"),
-	CONSTRAINT FK_ProductCategory_Category FOREIGN KEY ("CategoryId") REFERENCES  "Category" ("CategoryId"),
-)
+--CREATE TABLE "ProductCategory"(
+--	"ProductId" nvarchar(100),
+--	"CategoryId" nvarchar(100),
+--	CONSTRAINT "PK_ProductCategory" PRIMARY KEY  CLUSTERED 
+--	(
+--		"ProductId",
+--		"CategoryId"
+--	),
+--	CONSTRAINT FK_ProductCategory_Product FOREIGN KEY ("ProductId") REFERENCES  "Product" ("ProductId"),
+--	CONSTRAINT FK_ProductCategory_Category FOREIGN KEY ("CategoryId") REFERENCES  "Category" ("CategoryId"),
+--)
 
 --CREATE TABLE "Ship"(
 --	"Id" int Primary key,
@@ -176,19 +177,8 @@ CREATE TABLE "OrderDetail"(
 --INSERT INTO "Ship" VALUES (2,'PHAM Ngu Lao','DONG HOA','Q5','HCM','Tuấn','0865965422',1)
 --INSERT INTO "Ship" VALUES (3,'Truong Son Đông','DONG HOA','Bình Thạnh','HCM','Hải','0398745623',2)
 
-INSERT INTO "Product" VALUES ('test_1','test_brand_1','test_name_1','test_decription_1','test_img1_1','test_img2_1','test_img3_1',1,1,1)
-INSERT INTO "Product" VALUES ('test_2','test_brand_2','test_name_2','test_decription_2','test_img1_2','test_img2_2','test_img3_2',2,2,2)
-INSERT INTO "Product" VALUES ('test_3','test_brand_3','test_name_3','test_decription_3','test_img1_3','test_img2_3','test_img3_3',3,3,3)
-INSERT INTO "Product" VALUES ('test_4','test_brand_4','test_name_4','test_decription_4','test_img1_4','test_img2_4','test_img3_4',4,4,4)
-INSERT INTO "Product" VALUES ('test_5','test_brand_5','test_name_5','test_decription_5','test_img1_5','test_img2_5','test_img3_5',5,5,5)
-
-INSERT INTO "Category" VALUES ('test_1','test_name_1','test_decription_1')
-INSERT INTO "Category" VALUES ('test_2','test_name_2','test_decription_2')
-INSERT INTO "Category" VALUES ('test_3','test_name_3','test_decription_3')
-INSERT INTO "Category" VALUES ('test_4','test_name_4','test_decription_4')
-INSERT INTO "Category" VALUES ('test_5','test_name_5','test_decription_5')
-
-INSERT INTO "ProductCategory" VALUES ('test_1','test_1')
-INSERT INTO "ProductCategory" VALUES ('test_1','test_2')
-INSERT INTO "ProductCategory" VALUES ('test_1','test_3')
-INSERT INTO "ProductCategory" VALUES ('test_1','test_4')
+INSERT INTO "Product" VALUES ('test_1','test_brand_1','test_name_1','test_decription_1','test_img1_1','test_img2_1','test_img3_1',1,1,1,'test_category_1')
+INSERT INTO "Product" VALUES ('test_2','test_brand_2','test_name_2','test_decription_2','test_img1_2','test_img2_2','test_img3_2',2,2,2,'test_category_2')
+INSERT INTO "Product" VALUES ('test_3','test_brand_3','test_name_3','test_decription_3','test_img1_3','test_img2_3','test_img3_3',3,3,3,'test_category_3')
+INSERT INTO "Product" VALUES ('test_4','test_brand_4','test_name_4','test_decription_4','test_img1_4','test_img2_4','test_img3_4',4,4,4,'test_category_4')
+INSERT INTO "Product" VALUES ('test_5','test_brand_5','test_name_5','test_decription_5','test_img1_5','test_img2_5','test_img3_5',5,5,5,'test_category_5')
