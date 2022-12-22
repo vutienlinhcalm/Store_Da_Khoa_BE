@@ -10,6 +10,7 @@ namespace Core.IRepositories
 {
     public interface IOrderRepository
     {
+        Task<(int, List<Order>)> GetListOrderAsync(CancellationToken cancellationToken);
         Task<(int, Order)> GetOrderByIdAsync(string id, CancellationToken cancellationToken);
         Task<(int, List<Order>)> GetListOrderByAccountIdAsync(string accountId, CancellationToken cancellationToken);
         Task<(int, Order)> InsertOrderAsync(OrderViewModel model, CancellationToken cancellationToken);

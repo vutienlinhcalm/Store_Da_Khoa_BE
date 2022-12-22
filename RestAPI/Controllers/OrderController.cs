@@ -18,6 +18,19 @@ namespace RestAPI.Controllers
         }
 
         [HttpGet]
+        [Route("GetListOrder")]
+        public async Task<IActionResult> GetListOrderAsync(CancellationToken cancellationToken)
+        {
+            var (success, _response) = await _orderService.GetListOrderAsync(cancellationToken);
+            var _result = new
+            {
+                Success = success,
+                Data = _response
+            };
+            return Ok(_result);
+        }
+
+        [HttpGet]
         [Route("GetOrderById/{id}")]
         public async Task<IActionResult> GetOrderByIdAsync([FromRoute] string id, CancellationToken cancellationToken) 
         {
@@ -42,6 +55,7 @@ namespace RestAPI.Controllers
             };
             return Ok(_result);
         }
+
         [HttpPost]
         [Route("CreateOrder")]
         public async Task<IActionResult> CreateOrderAsync([FromBody] OrderViewModel order, CancellationToken cancellationToken)
@@ -54,5 +68,19 @@ namespace RestAPI.Controllers
             };
             return Ok(_result);
         }
+
+        //[HttpPost]
+        //[Route("AddProduct")]
+        //public async Task<IActionResult> AddProductAsync([FromBody] OrderViewModel order, CancellationToken cancellationToken)
+        //{
+        //    var (success, _response) = await _orderService.CreateOrderAsync(order, cancellationToken);
+        //    var _result = new
+        //    {
+        //        Success = success,
+        //        Data = _response
+        //    };
+        //    return Ok(_result);
+        //}
+
     }
 }

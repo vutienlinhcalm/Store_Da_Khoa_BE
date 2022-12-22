@@ -34,6 +34,9 @@ namespace RestAPI
             builder.Services.AddScoped<IOrderService, OrderService>();
             builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
+            builder.Services.AddScoped<IAccountService, AccountService>();
+            builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

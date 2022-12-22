@@ -24,6 +24,14 @@ namespace Repositories
             _clothesStoreDbContext = clothesStoreDbContext;
         }
 
+        public async Task<(int, List<Order>)> GetListOrderAsync(CancellationToken cancellationToken)
+        {
+            var result = await _clothesStoreDbContext.Orders
+                .Include(p => p.OrderDetails)
+                .ToListAsync(cancellationToken);
+            return (1, result);
+        }
+
         public async Task<(int, Order)> GetOrderByIdAsync(string id, CancellationToken cancellationToken)
         {
             var result = await _clothesStoreDbContext.Orders

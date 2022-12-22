@@ -22,5 +22,21 @@ namespace Core.ViewModel
         public string? Email { get; set; }
 
         public string? Phone { get; set; }
+
+        public Account GetInsertModel()
+        {
+            var account = new Account()
+            {
+                AccountId = new Guid().ToString(),
+                Name = Name,
+                UserName = UserName,
+                Password = Password,
+                IsAdmin = IsAdmin,
+                Email = Email,
+                Phone = Phone
+            };
+
+            return account;
+        }
     }
 }

@@ -26,15 +26,18 @@ public partial class Order
 
     public OrderViewModel GetViewModel()
     {
-        var order = new OrderViewModel();
-        order.OrderId = OrderId;
-        order.AccountId = AccountId;
-        order.OrderTime = OrderTime;
-        order.PaymentMethod = PaymentMethod;
-        order.Address = Address;
-        order.Status = Status;
-        order.TotalPrice = TotalPrice;
-        order.OrderDetails = OrderDetails.Select(orderDetail => orderDetail.GetViewModel()).ToList();
+        var order = new OrderViewModel()
+        {
+            OrderId = OrderId,
+            AccountId = AccountId,
+            OrderTime = OrderTime,
+            PaymentMethod = PaymentMethod,
+            Address = Address,
+            Status = Status,
+            TotalPrice = TotalPrice,
+            Account = Account.GetViewModel(),
+            OrderDetails = OrderDetails.Select(orderDetail => orderDetail.GetViewModel()).ToList(),
+        };
 
         return order;
     }

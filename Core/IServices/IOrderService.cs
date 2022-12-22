@@ -11,6 +11,7 @@ namespace Core.IServices
 {
     public interface IOrderService
     {
+        Task<(int, List<OrderViewModel>)> GetListOrderAsync(CancellationToken cancellationToken);
         Task<(int, OrderViewModel)> GetOrderByIdAsync(string id, CancellationToken cancellationToken);
         Task<(int, List<OrderViewModel>)> GetListOrderByAccountIdAsync(string accountId, CancellationToken cancellationToken);
         Task<(int, OrderViewModel)> CreateOrderAsync(OrderViewModel order, CancellationToken cancellationToken);

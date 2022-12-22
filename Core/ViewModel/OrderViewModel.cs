@@ -24,6 +24,8 @@ namespace Core.ViewModel
 
         public int? TotalPrice { get; set; }
 
+        public AccountViewModel? Account { get; set; }
+
         public List<OrderDetailViewModel> OrderDetails { get; set; } = new List<OrderDetailViewModel>();
 
         public Order GetInsertModel()
