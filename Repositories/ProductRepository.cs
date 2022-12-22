@@ -32,7 +32,11 @@ namespace Repositories
         {
             var result = await _clothesStoreDbContext.Products
                 .Where(p => p.ProductId == id)
-                .FirstAsync(cancellationToken);
+                .FirstOrDefaultAsync(cancellationToken);
+            if (result == null)
+            {
+                return (0, new Product());
+            }
             return (1, result);
         }
         public async Task<(int, List<Product>)> GetListProductByCategoryAsync(string category, CancellationToken cancellationToken)

@@ -26,7 +26,11 @@ namespace Repositories
         {
             var result = await _clothesStoreDbContext.Accounts
                 .Where(acc => acc.AccountId == id)
-                .FirstAsync(cancellationToken);
+                .FirstOrDefaultAsync(cancellationToken);
+            if (result == null)
+            {
+                return (0, new Account());
+            }
             return (1, result);
         }
 

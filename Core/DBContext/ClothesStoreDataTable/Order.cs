@@ -6,7 +6,7 @@ namespace Core.DBContext.ClothesStoreDataTable;
 
 public partial class Order
 {
-    public string OrderId { get; set; }
+    public string OrderId { get; set; } = Guid.Empty.ToString();
 
     public string? AccountId { get; set; }
 
@@ -24,10 +24,8 @@ public partial class Order
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
-    public Order()
-    {
-        OrderId = Guid.Empty.ToString();
-    }
+    public Order() { }
+
     public Order(Account account)
     {
         OrderId = new Guid().ToString();
@@ -49,7 +47,7 @@ public partial class Order
             Address = Address,
             Status = Status,
             TotalPrice = TotalPrice,
-            Account = Account.GetViewModel(),
+            Account = Account != null ? Account.GetViewModel() : null,
             OrderDetails = OrderDetails.Select(orderDetail => orderDetail.GetViewModel()).ToList(),
         };
 

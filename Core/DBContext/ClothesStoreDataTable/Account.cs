@@ -6,7 +6,7 @@ namespace Core.DBContext.ClothesStoreDataTable;
 
 public partial class Account
 {
-    public string AccountId { get; set; } = null!;
+    public string AccountId { get; set; } = Guid.Empty.ToString();
 
     public string? Name { get; set; }
 
