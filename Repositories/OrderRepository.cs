@@ -27,7 +27,8 @@ namespace Repositories
         public async Task<(int, List<Order>)> GetListOrderAsync(CancellationToken cancellationToken)
         {
             var result = await _clothesStoreDbContext.Orders
-                .Include(p => p.OrderDetails)
+                .Include(o => o.Account)
+                .Include(o => o.OrderDetails).ThenInclude(orderDetail => orderDetail.Product)
                 .ToListAsync(cancellationToken);
             return (1, result);
         }
@@ -36,8 +37,12 @@ namespace Repositories
         {
             var result = await _clothesStoreDbContext.Orders
                 .Where(or => or.OrderId == id)
-                .Include(p => p.OrderDetails)
-                .FirstAsync(cancellationToken);
+                .Include(o => o.OrderDetails).ThenInclude(orderDetail => orderDetail.Product)
+                .FirstOrDefaultAsync(cancellationToken);
+            if (result == null)
+            {
+                return (0, new Order());
+            }
             return (1, result);
         }
 
@@ -45,18 +50,32 @@ namespace Repositories
         {
             var result = await _clothesStoreDbContext.Orders
                 .Where(or => or.AccountId == accountId)
-                .Include(p => p.OrderDetails)
+                .Include(o => o.OrderDetails).ThenInclude(orderDetail => orderDetail.Product)
                 .ToListAsync(cancellationToken);
             return (1, result);
         }
 
-        public async Task<(int, Order)> InsertOrderAsync(OrderViewModel order, CancellationToken cancellationToken)
+        public async Task<(int, Order)> InsertOrderAsync(Order order, CancellationToken cancellationToken)
         {
-            var o = order.GetInsertModel();
-
-            var result = await _clothesStoreDbContext.AddAsync(o, cancellationToken);
+            await _clothesStoreDbContext.Orders.AddAsync(order, cancellationToken);
             _clothesStoreDbContext.SaveChanges();
-            return (1, o);
+            return (1, order);
+        }
+
+        public async Task<(int, OrderDetail)> UpsertOrderDetailAsync(OrderDetail orderDetail, CancellationToken cancellationToken)
+        {
+            if (_clothesStoreDbContext.OrderDetails.Any(_orderDetail => _orderDetail.OrderId == orderDetail.OrderId && _orderDetail.ProductId == orderDetail.ProductId))
+            {
+                _clothesStoreDbContext.Update(orderDetail);
+                await _clothesStoreDbContext.SaveChangesAsync(cancellationToken);
+                return (1, orderDetail);
+            }
+            else
+            {
+                await _clothesStoreDbContext.AddAsync(orderDetail, cancellationToken);
+                _clothesStoreDbContext.SaveChanges();
+                return (1, orderDetail);
+            }
         }
     }
 }

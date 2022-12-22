@@ -28,7 +28,7 @@ namespace Core.ViewModel
 
         public List<OrderDetailViewModel> OrderDetails { get; set; } = new List<OrderDetailViewModel>();
 
-        public Order GetInsertModel()
+        public Order GetInsertModel(Account account)
         {
             var id = new Guid().ToString();
             var o = new Order()
@@ -38,10 +38,10 @@ namespace Core.ViewModel
                 OrderTime = OrderTime,
                 PaymentMethod = PaymentMethod,
                 Address = Address,
-                Status = Status,
-                TotalPrice = TotalPrice,
-                Account = AccountId is not null ? new Account() { AccountId = AccountId} : null,
-                OrderDetails = OrderDetails.Select(orederDetail => orederDetail.GetInsertModel(id)).ToList(),
+                Status = 0,
+                TotalPrice = 0,
+                Account = account,
+                OrderDetails = OrderDetails.Select(orederDetail => orederDetail.GetInsertModel()).ToList(),
             };
 
             return o;

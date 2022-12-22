@@ -32,15 +32,15 @@ namespace Core.ViewModel
 
             return orderDetail;
         }
-        public OrderDetail GetInsertModel(string id)
+        public OrderDetail GetInsertModel(Product product)
         {
             var orderDetail = new OrderDetail()
             {
-                OrderId = id,
+                OrderId = OrderId,
                 ProductId = ProductId,
                 Quantity = Quantity,
                 Price = Price,
-                Product = new Product() { ProductId = ProductId },
+                Product = product,
             };
 
             return orderDetail;

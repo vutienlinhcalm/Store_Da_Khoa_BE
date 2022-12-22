@@ -24,6 +24,20 @@ public partial class Order
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
+    public Order()
+    {
+        OrderId = Guid.Empty.ToString();
+    }
+    public Order(Account account)
+    {
+        OrderId = new Guid().ToString();
+        AccountId = account.AccountId;
+        OrderTime = DateTime.Now;
+        Status = 0;
+        TotalPrice = 0;
+        Account = account;
+    }
+
     public OrderViewModel GetViewModel()
     {
         var order = new OrderViewModel()

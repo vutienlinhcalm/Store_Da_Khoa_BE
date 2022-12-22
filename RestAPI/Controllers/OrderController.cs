@@ -57,10 +57,10 @@ namespace RestAPI.Controllers
         }
 
         [HttpPost]
-        [Route("CreateOrder")]
-        public async Task<IActionResult> CreateOrderAsync([FromBody] OrderViewModel order, CancellationToken cancellationToken)
+        [Route("AddProductToCart")]
+        public async Task<IActionResult> AddProductToCartAsync([FromBody] AddProductToCartViewModel model, CancellationToken cancellationToken)
         {
-            var (success, _response) = await _orderService.CreateOrderAsync(order, cancellationToken);
+            var (success, _response) = await _orderService.AddProductToCartAsync(model, cancellationToken);
             var _result = new
             {
                 Success = success,
@@ -68,19 +68,6 @@ namespace RestAPI.Controllers
             };
             return Ok(_result);
         }
-
-        //[HttpPost]
-        //[Route("AddProduct")]
-        //public async Task<IActionResult> AddProductAsync([FromBody] OrderViewModel order, CancellationToken cancellationToken)
-        //{
-        //    var (success, _response) = await _orderService.CreateOrderAsync(order, cancellationToken);
-        //    var _result = new
-        //    {
-        //        Success = success,
-        //        Data = _response
-        //    };
-        //    return Ok(_result);
-        //}
 
     }
 }

@@ -13,6 +13,7 @@ namespace Core.IRepositories
         Task<(int, List<Order>)> GetListOrderAsync(CancellationToken cancellationToken);
         Task<(int, Order)> GetOrderByIdAsync(string id, CancellationToken cancellationToken);
         Task<(int, List<Order>)> GetListOrderByAccountIdAsync(string accountId, CancellationToken cancellationToken);
-        Task<(int, Order)> InsertOrderAsync(OrderViewModel model, CancellationToken cancellationToken);
+        Task<(int, Order)> InsertOrderAsync(Order model, CancellationToken cancellationToken);
+        Task<(int, OrderDetail)> UpsertOrderDetailAsync(OrderDetail orderDetail, CancellationToken cancellationToken);
     }
 }
