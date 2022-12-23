@@ -135,36 +135,6 @@ INSERT INTO "Account" VALUES ('09','Thanh Toàn','ThanhToan','Toan123',0,'toan12
 INSERT INTO "Account" VALUES ('10','Võ Thị Hồng','HongVo','Hong123',0,'hong123@gmail.com','0325614587');
 
 
-
-
-INSERT INTO "Order" VALUES ('01','05','2022-11-04 04:10:36','COD','255 Phạm Ngũ Lão Quân 1',1,1500000);
-INSERT INTO "Order" VALUES ('02','06','2022-12-04 14:10:36','COD','243 Lý Thường Kiệt Quận 10',1,500000);
-INSERT INTO "Order" VALUES ('03','07','2022-09-24 00:10:36','COD','444 Phan Chu Trinh Quân Bình Thạnh',1,1500000);
-INSERT INTO "Order" VALUES ('04','08','2022-09-15 00:10:32','COD','KTX Khu A Dĩ An Bình Dương',1,1500000);
-INSERT INTO "Order" VALUES ('05','09','2022-09-24 00:00:00','COD','KTX Khu B Dĩ An Bình Dương',1,1500000);
-INSERT INTO "Order" VALUES ('06','10','2022-09-24 00:00:00','COD','KTX Khu B Dĩ An Bình Dương',1,1500000);
-
-INSERT INTO "OrderDetail" VALUES ('01','01',2,500000)
-INSERT INTO "OrderDetail" VALUES ('01','02',5,1000000)
-INSERT INTO "OrderDetail" VALUES ('02','06',1,250000)
-INSERT INTO "OrderDetail" VALUES ('02','15',1,250000)
-
-INSERT INTO "OrderDetail" VALUES ('03','11',1,550000)
-INSERT INTO "OrderDetail" VALUES ('03','12',1,450000)
-INSERT INTO "OrderDetail" VALUES ('03','13',1,500000)
-
-INSERT INTO "OrderDetail" VALUES ('04','11',1,550000)
-INSERT INTO "OrderDetail" VALUES ('04','12',1,450000)
-INSERT INTO "OrderDetail" VALUES ('04','13',1,500000)
-
-INSERT INTO "OrderDetail" VALUES ('05','11',1,550000)
-INSERT INTO "OrderDetail" VALUES ('05','12',1,450000)
-INSERT INTO "OrderDetail" VALUES ('05','13',1,500000)
-
-INSERT INTO "OrderDetail" VALUES ('06','11',1,550000)
-INSERT INTO "OrderDetail" VALUES ('06','12',1,450000)
-INSERT INTO "OrderDetail" VALUES ('06','13',1,500000)
-
 --skirts
 INSERT INTO "Product" VALUES ('01','Adidas','UNDERCOOL Tenis','UNDERCOOL Tenis Tennis Skirt 100% Cotton, Imported, Button closure, Regular fit through the chest for a relaxed, unrestricted fit with a printed neck label to maximize comfort','https://m.media-amazon.com/images/I/61B4GgfKuJL._AC_UL1500_.jpg','https://m.media-amazon.com/images/I/71KlsVhQMLL._AC_UL1500_.jpg','https://m.media-amazon.com/images/I/61nFkDvEsdL._AC_UL1500_.jpg',250,12,0,'skirts')
 INSERT INTO "Product" VALUES ('02','Eva de Eva','skirt Vintage','Vintage Ulzzang Zinti 100% Cotton, Imported, Button closure, Regular fit through the chest for a relaxed, unrestricted fit with a printed neck label to maximize comfort','https://cf.shopee.vn/file/a7e2304babc7b574d62fed84172cc605','https://cf.shopee.vn/file/57cbe3b53b7d301bcf4d7347b5da3577','https://cf.shopee.vn/file/d092ce55fab49170e16ed283b8625ba8',200,22,0,'skirts')
@@ -260,9 +230,9 @@ INSERT INTO "Product" VALUES ('81','Sadboy','JOGGER PANTS','60% Cotton, 40% Poly
 INSERT INTO "Product" VALUES ('82','Arhi','CARGO FELT PANTS','60% Cotton, 40% Polyester, This slim-fit chino pant features wrinkle-free fabric, a flat-front design, and button-through back welt pockets for a tailored look and all-day comfort','https://cf.shopee.vn/file/sg-11134201-22110-91yxzinkiyjva2','https://cf.shopee.vn/file/sg-11134201-22110-ej3megnpiyjv15','https://cf.shopee.vn/file/sg-11134201-22110-g08i3hnpiyjv88',200,14,0,'pants')
 INSERT INTO "Product" VALUES ('83','Arhi','TROUSERS PANTS','60% Cotton, 40% Polyester, This slim-fit chino pant features wrinkle-free fabric, a flat-front design, and button-through back welt pockets for a tailored look and all-day comfort','https://cf.shopee.vn/file/aa33d3887f05fe7a3434d9898daab70f','https://cf.shopee.vn/file/7dac7f23cce7844fbb74d9c07b948568','https://cf.shopee.vn/file/7dac7f23cce7844fbb74d9c07b948568',250,15,0,'pants')
 INSERT INTO "Product" VALUES ('84','Gonz Brand','Slim-Fit Wrinkle-Resistant Flat-Front Chino Pant','60% Cotton, 40% Polyester, This slim-fit chino pant features wrinkle-free fabric, a flat-front design, and button-through back welt pockets for a tailored look and all-day comfort','https://cf.shopee.vn/file/18c942289e18768ab02428cf65a4b240','https://cf.shopee.vn/file/18c942289e18768ab02428cf65a4b240','https://cf.shopee.vn/file/18c942289e18768ab02428cf65a4b240',175,35,1,'pants')
-INSERT INTO "Product" VALUES ('85','The Maze if we kiss','Washed skinny','slim-fit for gentleman','https://cf.shopee.vn/file/a8c43721fbb0f77c3545d7f0898abfe1','https://cf.shopee.vn/file/a8c43721fbb0f77c3545d7f0898abfe1','https://cf.shopee.vn/file/a8c43721fbb0f77c3545d7f0898abfe1',400,62,1,'pants')
-INSERT INTO "Product" VALUES ('86','YobaShop','Long skinny jeans','skinny jeans for energetic days','https://cf.shopee.vn/file/2de33dca08976c9d2b275a609a633f28','https://cf.shopee.vn/file/2de33dca08976c9d2b275a609a633f28','https://cf.shopee.vn/file/2de33dca08976c9d2b275a609a633f28',380,20,1,'pants')
-INSERT INTO "Product" VALUES ('87','Local','CARGO FELT PANTS','60% Cotton, 40% Polyester, This slim-fit chino pant features wrinkle-free fabric, a flat-front design, and button-through back welt pockets for a tailored look and all-day comfort','https://cf.shopee.vn/file/6fed74857715ecf8184361ff9217bcc5','https://cf.shopee.vn/file/6fed74857715ecf8184361ff9217bcc5','https://cf.shopee.vn/file/6fed74857715ecf8184361ff9217bcc5',170,14,1,'pants')
+INSERT INTO "Product" VALUES ('141','The Maze if we kiss','Washed skinny','slim-fit for gentleman','https://cf.shopee.vn/file/a8c43721fbb0f77c3545d7f0898abfe1','https://cf.shopee.vn/file/a8c43721fbb0f77c3545d7f0898abfe1','https://cf.shopee.vn/file/a8c43721fbb0f77c3545d7f0898abfe1',400,62,1,'pants')
+INSERT INTO "Product" VALUES ('142','YobaShop','Long skinny jeans','skinny jeans for energetic days','https://cf.shopee.vn/file/2de33dca08976c9d2b275a609a633f28','https://cf.shopee.vn/file/2de33dca08976c9d2b275a609a633f28','https://cf.shopee.vn/file/2de33dca08976c9d2b275a609a633f28',380,20,1,'pants')
+INSERT INTO "Product" VALUES ('143','Local','CARGO FELT PANTS','60% Cotton, 40% Polyester, This slim-fit chino pant features wrinkle-free fabric, a flat-front design, and button-through back welt pockets for a tailored look and all-day comfort','https://cf.shopee.vn/file/6fed74857715ecf8184361ff9217bcc5','https://cf.shopee.vn/file/6fed74857715ecf8184361ff9217bcc5','https://cf.shopee.vn/file/6fed74857715ecf8184361ff9217bcc5',170,14,1,'pants')
 
 -- t-shirt
 INSERT INTO "Product" VALUES ('85','Sadboy','Eversoft Cotton Stay Tucked Crew T-Shirt','Fruit of the Loom mens crews work great alone or to add an extra layer under a button-down or polo shirt. This shirt eliminates ride-up, it stays neatly tucked so you can go about your busy day with confidence.','https://m.media-amazon.com/images/I/71YYuvLpqxL._AC_UL1500_.jpg','https://m.media-amazon.com/images/I/71GX5QGOKsL._AC_UL1500_.jpg','https://m.media-amazon.com/images/I/81A5gnmQ2GL._AC_UL1500_.jpg',150,11,1,'t-shirt')
@@ -328,3 +298,31 @@ INSERT INTO "Product" VALUES ('138','She Shoes','High Sandals','High heels sanda
 INSERT INTO "Product" VALUES ('139','Bejo','High heels','White high heels for bride, wedding day','https://cf.shopee.vn/file/ecf66cb96b6f9852cac10337912fef38','https://cf.shopee.vn/file/ecf66cb96b6f9852cac10337912fef38','https://cf.shopee.vn/file/ecf66cb96b6f9852cac10337912fef38',610,6,0,'shoes')
 INSERT INTO "Product" VALUES ('140','Big Tree Store','Aiko heels','100% Original Aiko heels, white version','https://cf.shopee.vn/file/38810b2ccba9bdfc939fe110a5041f6b','https://cf.shopee.vn/file/38810b2ccba9bdfc939fe110a5041f6b','https://cf.shopee.vn/file/38810b2ccba9bdfc939fe110a5041f6b',370,40,0,'shoes')
 --
+
+INSERT INTO "Order" VALUES ('01','05','2022-11-04 04:10:36','COD','255 Phạm Ngũ Lão Quân 1',1,1500000);
+INSERT INTO "Order" VALUES ('02','06','2022-12-04 14:10:36','COD','243 Lý Thường Kiệt Quận 10',1,500000);
+INSERT INTO "Order" VALUES ('03','07','2022-09-24 00:10:36','COD','444 Phan Chu Trinh Quân Bình Thạnh',1,1500000);
+INSERT INTO "Order" VALUES ('04','08','2022-09-15 00:10:32','COD','KTX Khu A Dĩ An Bình Dương',1,1500000);
+INSERT INTO "Order" VALUES ('05','09','2022-09-24 00:00:00','COD','KTX Khu B Dĩ An Bình Dương',1,1500000);
+INSERT INTO "Order" VALUES ('06','10','2022-09-24 00:00:00','COD','KTX Khu B Dĩ An Bình Dương',1,1500000);
+
+INSERT INTO "OrderDetail" VALUES ('01','01',2,500000)
+INSERT INTO "OrderDetail" VALUES ('01','02',5,1000000)
+INSERT INTO "OrderDetail" VALUES ('02','06',1,250000)
+INSERT INTO "OrderDetail" VALUES ('02','15',1,250000)
+
+INSERT INTO "OrderDetail" VALUES ('03','11',1,550000)
+INSERT INTO "OrderDetail" VALUES ('03','12',1,450000)
+INSERT INTO "OrderDetail" VALUES ('03','13',1,500000)
+
+INSERT INTO "OrderDetail" VALUES ('04','11',1,550000)
+INSERT INTO "OrderDetail" VALUES ('04','12',1,450000)
+INSERT INTO "OrderDetail" VALUES ('04','13',1,500000)
+
+INSERT INTO "OrderDetail" VALUES ('05','11',1,550000)
+INSERT INTO "OrderDetail" VALUES ('05','12',1,450000)
+INSERT INTO "OrderDetail" VALUES ('05','13',1,500000)
+
+INSERT INTO "OrderDetail" VALUES ('06','11',1,550000)
+INSERT INTO "OrderDetail" VALUES ('06','12',1,450000)
+INSERT INTO "OrderDetail" VALUES ('06','13',1,500000)
