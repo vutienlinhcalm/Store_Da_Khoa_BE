@@ -35,7 +35,7 @@ namespace Core.ViewModel
         {
             var p = new Product()
             {
-                ProductId = new Guid().ToString(),
+                ProductId = Guid.NewGuid().ToString(),
                 Brand = Brand,
                 ProductName = ProductName,
                 Description = Description,

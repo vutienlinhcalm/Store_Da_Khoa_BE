@@ -10,9 +10,9 @@ namespace Core.ViewModel
 {
     public class CreateOrderViewModel
     {
-        public string OrderId { get; set; } = Guid.Empty.ToString();
+        public string OrderId { get; set; } = new Guid().ToString();
 
-        public string AccountId { get; set; } = Guid.Empty.ToString();
+        public string AccountId { get; set; } = new Guid().ToString();
 
         public string? PaymentMethod { get; set; }
 
@@ -24,7 +24,7 @@ namespace Core.ViewModel
 
         public Order GetInsertModel(Account account, List<Product> product)
         {
-            var id = new Guid().ToString();
+            var id = Guid.NewGuid().ToString();
             var order = new Order()
             {
                 OrderId = id,

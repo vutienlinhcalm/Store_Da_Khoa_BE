@@ -27,7 +27,7 @@ namespace Core.ViewModel
         {
             var account = new Account()
             {
-                AccountId = new Guid().ToString(),
+                AccountId = Guid.NewGuid().ToString(),
                 Name = Name,
                 UserName = UserName,
                 Password = Password,

@@ -10,7 +10,7 @@ namespace Core.ViewModel
 {
     public class OrderViewModel
     {
-        public string OrderId { get; set; } = Guid.Empty.ToString();
+        public string OrderId { get; set; } = new Guid().ToString();
 
         public string? AccountId { get; set; }
 
@@ -30,7 +30,7 @@ namespace Core.ViewModel
 
         public Order GetInsertModel(Account account)
         {
-            var id = new Guid().ToString();
+            var id = Guid.NewGuid().ToString();
             var o = new Order()
             {
                 OrderId = id,

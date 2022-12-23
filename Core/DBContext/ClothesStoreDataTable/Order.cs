@@ -6,7 +6,7 @@ namespace Core.DBContext.ClothesStoreDataTable;
 
 public partial class Order
 {
-    public string OrderId { get; set; } = Guid.Empty.ToString();
+    public string OrderId { get; set; } = new Guid().ToString();
 
     public string? AccountId { get; set; }
 
@@ -28,7 +28,7 @@ public partial class Order
 
     public Order(Account account)
     {
-        OrderId = new Guid().ToString();
+        OrderId = Guid.NewGuid().ToString();
         AccountId = account.AccountId;
         OrderTime = DateTime.Now;
         Status = 0;

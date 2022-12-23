@@ -7,7 +7,7 @@ namespace Core.DBContext.ClothesStoreDataTable;
 
 public partial class Product
 {
-    public string ProductId { get; set; } = Guid.Empty.ToString();
+    public string ProductId { get; set; } = new Guid().ToString();
 
     public string? Brand { get; set; }
 
