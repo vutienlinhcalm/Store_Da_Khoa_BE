@@ -23,23 +23,38 @@ namespace Services
             _productRepository = productRepository;
             _accountRepository = accountRepository;
         }
+
         public async Task<(int, List<OrderViewModel>)> GetListOrderAsync(CancellationToken cancellationToken)
         {
             var (success, response) = await _orderRepository.GetListOrderAsync(cancellationToken);
             var result = response.Select(order => order.GetViewModel()).ToList();
             return (success, result);
         }
+
         public async Task<(int, OrderViewModel)> GetOrderByIdAsync(string id, CancellationToken cancellationToken)
         {
             var (success, response) = await _orderRepository.GetOrderByIdAsync(id, cancellationToken);
             var result = response.GetViewModel();
             return (success, result);
         }
+
         public async Task<(int, List<OrderViewModel>)> GetListOrderByAccountIdAsync(string accountId, CancellationToken cancellationToken)
         {
             var (success, response) = await _orderRepository.GetListOrderByAccountIdAsync(accountId, cancellationToken);
             var result = response.Select(order => order.GetViewModel()).ToList();
             return (success, result);
+        }
+
+        public async Task<(int, OrderViewModel)> CreateOrderAsync(CreateOrderViewModel model, CancellationToken cancellationToken)
+        {
+            var (success1, account) = await _accountRepository.GetAccountByIdAsync(model.AccountId, cancellationToken);
+            var (success2, products) = await _productRepository.GetListProductByListIdAsync(model.OrderProducts.Select(p => p.ProductId).ToList(), cancellationToken);
+
+            var o = model.GetInsertModel(account, products);
+            var (success3, order) = await _orderRepository.InsertOrderAsync(o, cancellationToken);
+            var result = order.GetViewModel();
+
+            return (success3, result);
         }
 
         public async Task<(int, OrderDetailViewModel)> AddProductToCartAsync(AddProductToCartViewModel model, CancellationToken cancellationToken)
@@ -56,6 +71,7 @@ namespace Services
 
             var (success3, response) = await _orderRepository.UpsertOrderDetailAsync(orderDetail, cancellationToken);
             var result = response.GetViewModel();
+            // Update Order Total price didn't implemented
             return (success3, result);
         }
     }

@@ -14,6 +14,7 @@ namespace Core.IServices
         Task<(int, List<OrderViewModel>)> GetListOrderAsync(CancellationToken cancellationToken);
         Task<(int, OrderViewModel)> GetOrderByIdAsync(string id, CancellationToken cancellationToken);
         Task<(int, List<OrderViewModel>)> GetListOrderByAccountIdAsync(string accountId, CancellationToken cancellationToken);
+        Task<(int, OrderViewModel)> CreateOrderAsync(CreateOrderViewModel model, CancellationToken cancellationToken);
         Task<(int, OrderDetailViewModel)> AddProductToCartAsync(AddProductToCartViewModel model, CancellationToken cancellationToken);
 
     }

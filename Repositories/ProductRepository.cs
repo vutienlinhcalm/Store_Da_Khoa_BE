@@ -39,6 +39,17 @@ namespace Repositories
             }
             return (1, result);
         }
+        public async Task<(int, List<Product>)> GetListProductByListIdAsync(List<string> ids, CancellationToken cancellationToken)
+        {
+            var result = await _clothesStoreDbContext.Products
+                .Where(p => ids.Contains(p.ProductId))
+                .ToListAsync(cancellationToken);
+            if (result == null)
+            {
+                return (0, new List<Product>());
+            }
+            return (1, result);
+        }
         public async Task<(int, List<Product>)> GetListProductByCategoryAsync(string category, CancellationToken cancellationToken)
         {
             var result = await _clothesStoreDbContext.Products

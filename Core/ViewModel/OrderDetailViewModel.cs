@@ -17,7 +17,7 @@ namespace Core.ViewModel
 
         public int? Price { get; set; }
 
-        public ProductViewModel Product { get; set; } = null!;
+        public ProductViewModel? Product { get; set; }
 
         public OrderDetail GetInsertModel()
         {
